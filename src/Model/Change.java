@@ -1,6 +1,6 @@
 package Model;
 
-import Model.Persistence.CatchFromInternet;
+import View.Persistence.CatchFromInternet;
 import java.io.IOException;
 
 public class Change {

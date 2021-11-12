@@ -1,4 +1,3 @@
-Name,Code,Symbol
 Euro,EUR,€
 United States Dollar,USD,$
 Albania Lek,ALL,Lek
@@ -33,10 +32,8 @@ Dominican Republic Peso,DOP,RD$
 East Caribbean Dollar,XCD,$
 Egypt Pound,EGP,£
 El Salvador Colon,SVC,$
-Estonia Kroon,EEK,kr
 Falkland Islands Pound,FKP,£
 Fiji Dollar,FJD,$
-Ghana Cedis,GHC,¢
 Gibraltar Pound,GIP,£ 
 Guatemala Quetzal,GTQ,Q
 Guernsey Pound,GGP,£
@@ -102,9 +99,7 @@ Suriname Dollar,SRD,$
 Syria Pound,SYP,£
 Taiwan New Dollar,TWD,NT$
 Thailand Baht,THB,฿
-Trinidad and Tobago Dollar,TTD,TT$
-Turkey Lira,TRL,₤	 
-Tuvalu Dollar,TVD,$		 
+Trinidad and Tobago Dollar,TTD,TT$		 
 Ukraine Hryvna,UAH,₴
 United Kingdom Pound,GBP,£
 Uruguay Peso,UYU,$U
@@ -112,4 +107,3 @@ Uzbekistan Som,UZS,лв
 Venezuela Bolivar,VEF,Bs
 Viet Nam Dong,VND,₫
 Yemen Rial,YER,﷼
-Zimbabwe Dollar,ZWD,Z$

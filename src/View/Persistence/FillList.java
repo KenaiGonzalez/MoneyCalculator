@@ -7,16 +7,17 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
-import java.util.List;
 
 public class FillList {
     private static AllCurrencies list = AllCurrencies.init();
     public static AllCurrencies fill() throws FileNotFoundException, IOException{
-
-        List<Currency> currencies = DataBase.getCurrencies();
-        for (Currency currency : currencies) {
-            if(currency == null)continue;
-            list.add(currency);
+        
+        BufferedReader bf = new BufferedReader(new FileReader(new File("currencies.txt")));
+        while(true){
+            String read = bf.readLine();
+            if(read == null) break;
+            String[] currency = read.split(",");
+            list.add(new Currency(currency[0],currency[1],currency[2]));
         }
      
         return list;

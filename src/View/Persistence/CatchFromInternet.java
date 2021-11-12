@@ -11,27 +11,28 @@ import java.net.URLConnection;
 import java.net.UnknownHostException;
 
 public class CatchFromInternet {
-    private static final String urls = "http://currencies.apps.grandtrunk.net/getlatest/";
+    private static final String urls = "https://raw.githubusercontent.com/fawazahmed0/currency-api/1/latest/currencies/";
 
     public static double equivalence(Currency a,Currency b) throws IOException{
         String codeA = a.getCode().toLowerCase();
         String codeB = b.getCode().toLowerCase();
         try {
-            URL url = new URL(urls + codeA + "/" + codeB);
+            URL url = new URL(urls + codeA + "/" + codeB + ".min.json");
             URLConnection cnet = url.openConnection();
             BufferedReader in = null;
-            try{
-                in = new BufferedReader(new InputStreamReader(cnet .getInputStream()));
-            }catch(UnknownHostException ex){
-                System.out.println("DATOS NO DISPONIBLES, CONTACTE CON ADMINISTRADOR DE LA APP");
-                exit(1);
-            }
-            return Double.parseDouble(in.readLine());
+            
+            in = new BufferedReader(new InputStreamReader(cnet.getInputStream()));
+            String read = in.readLine();
+            read = read.split(":")[2].replaceFirst("}", "");
+            System.out.println(read);
+            return Double.parseDouble(read);
         } catch (MalformedURLException ex) {
             System.out.println("ERROR: " + ex.getMessage());
-            
-            return 0;
+        }catch(UnknownHostException ex){
+                System.out.println("DATOS NO DISPONIBLES, CONTACTE CON ADMINISTRADOR DE LA APP");
+                exit(1);
         }
+        return 0;
         
     }
 }

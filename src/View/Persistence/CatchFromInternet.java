@@ -24,7 +24,6 @@ public class CatchFromInternet {
             in = new BufferedReader(new InputStreamReader(cnet.getInputStream()));
             String read = in.readLine();
             read = read.split(":")[2].replaceFirst("}", "");
-            System.out.println(read);
             return Double.parseDouble(read);
         } catch (MalformedURLException ex) {
             System.out.println("ERROR: " + ex.getMessage());

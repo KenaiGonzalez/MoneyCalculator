@@ -6,7 +6,7 @@ import java.util.List;
 
 public class AllCurrencies extends HashSet<Currency> {
     private static AllCurrencies list;
-    public AllCurrencies() {
+    private AllCurrencies() {
         super();
     }
     
@@ -16,12 +16,12 @@ public class AllCurrencies extends HashSet<Currency> {
         }
         return list;
     }
-    public void setCurrency(Currency divisa) {
+    public static void setCurrency(Currency divisa) {
         if(!list.contains(divisa))
         list.add(divisa);
     }
     
-    public List<Currency> getList(){
+    public static List<Currency> getList(){
         List<Currency> arr = new ArrayList<>();
         for (Currency currency : list) {
             arr.add(currency);

@@ -1,25 +1,22 @@
 package moneycalculator;
+import Controller.ChangeController;
 import Model.*;
+import View.MoneyCalculatorFrame;
 import View.Persistence.FillList;
 import java.io.IOException;
 
 
 public class Main {
-    public static AllCurrencies list = new AllCurrencies();
+    public static AllCurrencies list = AllCurrencies.init();
    
     public static void main(String[] args) throws IOException{
         init();
+        MoneyCalculatorFrame mcf = new MoneyCalculatorFrame();
         
-        for (Currency currency : list) {
-            for (Currency currency1 : list) {
-                System.out.println(new Change(currency,currency1).calculateA(10));
-            }
-            
-        }
     }
     
     public static void init() throws IOException{
-        
+        MoneyCalculatorFrame mcf = new MoneyCalculatorFrame();
         list = FillList.fill();
         
         

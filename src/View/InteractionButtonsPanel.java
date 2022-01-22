@@ -1,10 +1,10 @@
 package View;
 
 import Controller.ChangeController;
+import Controller.CurrencyExchangeController;
 import java.awt.Dimension;
 import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 import javax.swing.JButton;
 import javax.swing.JLabel;
 
@@ -32,7 +32,9 @@ public class InteractionButtonsPanel extends javax.swing.JPanel {
 
     private void iniExchangeButton() {
         intercambio = new JButton("⇄");
-        //...........
+        intercambio.addActionListener(((ActionEvent ae) -> {
+            CurrencyExchangeController.execute();
+        }));
         this.add(intercambio);
     }
     

@@ -13,7 +13,6 @@ import javax.swing.JPanel;
 import javax.swing.JTextField;
 
 public class InputCurrencyPanel extends JPanel implements CurrencySelector,InputCurrency {
-    private Currency currency;
     private JComboBox cbInputCurrency;
     private JLabel lInputCurrency;
     private final Dimension d = new Dimension(300,100);
@@ -43,6 +42,14 @@ public class InputCurrencyPanel extends JPanel implements CurrencySelector,Input
         return  tfInputCurrency.getText();
     }
     
+    public void setValue(String string){
+        tfInputCurrency.setText(string);
+    }
+    
+    @Override
+    public void setSelectedCurrency(Currency currency){
+        cbInputCurrency.setSelectedItem((Object)currency);
+    }
     private void initComponents(){
         this.iniLabelCB();
         this.iniComboBox();
@@ -62,6 +69,7 @@ public class InputCurrencyPanel extends JPanel implements CurrencySelector,Input
         cbInputCurrency.setMaximumSize(new Dimension(50,20));
         cbInputCurrency.setMinimumSize(new Dimension(50,20));
         cbInputCurrency.setEditable(true);
+        cbInputCurrency.setSelectedItem(null);
         JTextField cbEditor;
         cbEditor = (JTextField) cbInputCurrency.getEditor().getEditorComponent();
         cbEditor.setText("");
@@ -71,7 +79,7 @@ public class InputCurrencyPanel extends JPanel implements CurrencySelector,Input
     
     private void iniTextField(){
         this.tfInputCurrency = new JTextField();
-        tfInputCurrency.setText("0");
+        tfInputCurrency.setText("0.0");
         this.add(tfInputCurrency);
     }
     

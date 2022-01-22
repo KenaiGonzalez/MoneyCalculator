@@ -47,6 +47,7 @@ public class OutputCurrencyPanel extends javax.swing.JPanel implements CurrencyS
         cbOutputCurrency.setMaximumSize(new Dimension(50,20));
         cbOutputCurrency.setMinimumSize(new Dimension(50,20));
         cbOutputCurrency.setEditable(true);
+        cbOutputCurrency.setSelectedItem(null);
         JTextField cbEditor;
         cbEditor = (JTextField) cbOutputCurrency.getEditor().getEditorComponent();
         cbEditor.setText("");
@@ -60,7 +61,7 @@ public class OutputCurrencyPanel extends javax.swing.JPanel implements CurrencyS
     }
     
     private void iniLabelResult() {
-        lOutputCurrency2 = new JLabel("0");
+        lOutputCurrency2 = new JLabel("0.0");
         this.add(lOutputCurrency2);
     }
 
@@ -74,9 +75,17 @@ public class OutputCurrencyPanel extends javax.swing.JPanel implements CurrencyS
 
     @Override
     public void setValue(Double value,String symbol) {
-        lOutputCurrency2.setText(value.toString());
+        lOutputCurrency2.setText(symbol.equals("") ? value.toString():value.toString()+" "+symbol);
     }
-
+    
+    public String getValue(){
+        return lOutputCurrency2.getText();
+    }
+    
+    @Override
+    public void setSelectedCurrency(Currency currency){
+        cbOutputCurrency.setSelectedItem((Object)currency);
+    }
     private KeyAdapter addSuggestions(){
         ArrayList<Object> lost = new ArrayList<>();
         JTextField cbEditor;

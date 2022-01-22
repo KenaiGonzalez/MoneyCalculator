@@ -1,6 +1,7 @@
 package View;
 
 import Controller.ChangeController;
+import Controller.CurrencyExchangeController;
 import java.awt.BorderLayout;
 import javax.swing.JFrame;
 
@@ -10,6 +11,7 @@ public class MoneyCalculatorFrame extends JFrame{
     private ButtonPanel bp;
     private OutputCurrencyPanel ocp;
     private InteractionButtonsPanel ibp;
+    private CurrencyExchangeController cec;
     
     
 
@@ -44,5 +46,6 @@ public class MoneyCalculatorFrame extends JFrame{
 
     private void initControllers() {
         cc = new ChangeController(icp, ocp);
+        cec = new CurrencyExchangeController(icp,ocp);
     }
 }

@@ -31,16 +31,23 @@ public class ChangeController {
     }
 
     private static Currency getCurrency(CurrencySelector cs){
-        Object currency = cs.getCurrency();
+        Currency currency = cs.getCurrency();
         if(currency != null){
-            return (Currency) currency;
-        } else {
+            return currency;
+        } else 
+        if(cs.getClass() == InputCurrencyPanel.class){
             JOptionPane.showMessageDialog(new JFrame()
                     , "Selecciona una divisa de entrada"
                     , "Error"
                     , JOptionPane.ERROR_MESSAGE);
-            return null;
+        }else  
+        if(cs.getClass() == OutputCurrencyPanel.class){
+            JOptionPane.showMessageDialog(new JFrame()
+                    , "Selecciona una divisa de salida"
+                    , "Error"
+                    , JOptionPane.ERROR_MESSAGE);
         }
+        return null;
         
     }
     private static Double getValue(InputCurrencyPanel cs) {
